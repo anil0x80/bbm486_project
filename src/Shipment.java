@@ -1,10 +1,10 @@
 public class Shipment
 {
-    private String id;
+    private int id;
     private String orderedItem;
     private String deliveryAddress;
 
-    public Shipment(String id, String orderedItem, String deliveryAddress)
+    public Shipment(int id, String orderedItem, String deliveryAddress)
     {
         this.orderedItem = orderedItem;
         this.id = id;
@@ -12,11 +12,11 @@ public class Shipment
     }
 
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -4,11 +4,11 @@ public class ShipmentContext
 {
     private Shipment shipment;
     private ShipmentState shipmentState;
+    private boolean isFinished = false;
 
-    public ShipmentContext(Shipment shipment)
-    {
+    public ShipmentContext(Shipment shipment) {
         this.shipment = shipment;
-        //shipmentState = OrderRecieved;
+        shipmentState = new OrderRecieved();
     }
 
     public void processShipment()
@@ -30,5 +30,13 @@ public class ShipmentContext
 
     public void setShipmentState(ShipmentState shipmentState) {
         this.shipmentState = shipmentState;
+    }
+
+    public boolean isFinished() {
+        return isFinished;
+    }
+
+    public void setFinished(boolean finished) {
+        isFinished = finished;
     }
 }
