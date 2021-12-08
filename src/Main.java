@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main
 {
     public static void main(String[] args)
@@ -8,5 +10,14 @@ public class Main
 
         // Main loop
         //
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Press enter to advance the state.");
+        while(!context.isFinished())
+        {
+            int myint = keyboard.nextInt();
+
+            context.processShipment();
+        }
+
     }
 }

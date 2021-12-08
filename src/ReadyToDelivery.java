@@ -2,11 +2,12 @@ public class ReadyToDelivery implements ShipmentState
 {
     @Override
     public String name() {
-        return null;
+        return "ReadyToDelivery";
     }
 
     @Override
     public void processShipment(ShipmentContext context) {
-
+        // bilgi printle
+        // DeliveryInProgress
     }
 }

@@ -1,13 +1,13 @@
-public class Packaging implements ShipmentState
+public class DeliverySuccessful implements ShipmentState
 {
     @Override
     public String name() {
-        return "Packaging";
+        return "DeliverySuccessful";
     }
 
     @Override
     public void processShipment(ShipmentContext context) {
         // bilgi printle
-        // -> ReadyToDelivery
+        context.setFinished(true);
     }
 }
