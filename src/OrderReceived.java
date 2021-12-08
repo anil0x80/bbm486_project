@@ -1,4 +1,4 @@
-public class OrderRecieved implements ShipmentState
+public class OrderReceived implements ShipmentState
 {
     @Override
     public String name() {

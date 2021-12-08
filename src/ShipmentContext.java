@@ -8,7 +8,7 @@ public class ShipmentContext
 
     public ShipmentContext(Shipment shipment) {
         this.shipment = shipment;
-        shipmentState = new OrderRecieved();
+        shipmentState = new OrderReceived();
     }
 
     public void processShipment()
