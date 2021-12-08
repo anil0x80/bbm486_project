@@ -2,15 +2,22 @@ public class Shipment
 {
     private int id;
     private String orderedItem;
-    private String deliveryAddress;
+    private Customer customer;
 
-    public Shipment(int id, String orderedItem, String deliveryAddress)
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Shipment(int id, String orderedItem, Customer customer)
     {
         this.orderedItem = orderedItem;
         this.id = id;
-        this.deliveryAddress = deliveryAddress;
+        this.customer = customer;
     }
-
 
     public int getId() {
         return id;
@@ -28,12 +35,5 @@ public class Shipment
         this.orderedItem = orderedItem;
     }
 
-    public String getDeliveryAddress() {
-        return deliveryAddress;
-    }
-
-    public void setDeliveryAddress(String deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
-    }
 }
 
