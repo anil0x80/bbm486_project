@@ -12,12 +12,11 @@ public class DeliveryInProgress implements ShipmentState
         Shipment shipment = context.getShipment();
         int randomWaitTime = ThreadLocalRandom.current().nextInt(1,6);
 
-        for (int i = 0 ; i < randomWaitTime ; i++){
-            System.out.printf("The order with the ID '%d' for '%s' now has status '%s'. Delivery Address is '%s' and Customer name is '%s'\n", shipment.getId(),
+        for (int i = 0 ; i < randomWaitTime ; i++){ // TODO sehirler arasi yol printle
+            System.out.printf("Order#%s for '%s' now has status '%s'. Delivery Address is '%s' and Customer name is '%s'\n", shipment.getId(),
                     shipment.getOrderedItem(), name(), shipment.getCustomer().getHomeAddress(), shipment.getCustomer().getName());
 
         }
-
 
         double randomCustomerAtHomeChance = Math.random();
 
@@ -26,9 +25,5 @@ public class DeliveryInProgress implements ShipmentState
         }else{
             context.setShipmentState(new DeliveryFailed());
         }
-
-        // bilgi printle
-        // eger customer evinde ise [probability?], DeliverySuccessful
-        // eger degilse -> DeliveryFailed
     }
 }

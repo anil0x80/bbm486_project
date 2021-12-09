@@ -13,8 +13,6 @@ public class OrderReceived implements ShipmentState
         System.out.println("The order has been received, checking if the customer has enough money.");
         System.out.println("Ordered item: " + product);
 
-        context.setShipmentState(new CheckingStock());
-
         System.out.println("customerMoney: " + customerMoney);
         System.out.println("Price: " + price);
         if (price <= customerMoney)

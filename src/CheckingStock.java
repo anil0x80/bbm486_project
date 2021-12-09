@@ -23,7 +23,7 @@ public class CheckingStock implements ShipmentState
         }
         else
         {
-            System.out.println("Order faiuled because item: " + orderedItem + " is not in stock!");
+            System.out.println("Order failed because item: " + orderedItem + " is not in stock!");
             context.setShipmentState(new OrderFailed());
         }
 

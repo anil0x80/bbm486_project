@@ -9,7 +9,7 @@ public class DeliverySuccessful implements ShipmentState
     @Override
     public void processShipment(ShipmentContext context) {
 
-        System.out.printf("Order#'%s' for '%s' has status '%s (%s)'.\nDelivery Address is '%s'\n", context.getShipment().getId(),
+        System.out.printf("Order#%s for '%s' has status '%s (%s)'.\nDelivery Address is '%s'\n", context.getShipment().getId(),
                 context.getShipment().getOrderedItem(), name(),DeliverySuccessfulNote
                 , context.getShipment().getCustomer().getHomeAddress()
         );
