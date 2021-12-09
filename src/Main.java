@@ -1,5 +1,4 @@
-import java.io.IOException;
-import java.util.Scanner;
+import java.io.IOException;;
 
 public class Main
 {
@@ -14,7 +13,6 @@ public class Main
 
         // Main loop
         //
-        Scanner keyboard = new Scanner(System.in);
         System.out.println("Press enter to advance the state.");
         while(!context.isFinished())
         {
