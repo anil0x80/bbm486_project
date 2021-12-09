@@ -1,8 +1,14 @@
+
 public class Shipment
 {
     private int id;
     private String orderedItem;
+    private float itemCost;
     private Customer customer;
+
+    public float getItemCost() {
+        return itemCost;
+    }
 
     public Customer getCustomer() {
         return customer;
@@ -17,6 +23,7 @@ public class Shipment
         this.orderedItem = orderedItem;
         this.id = id;
         this.customer = customer;
+        this.itemCost = Database.getInstance().getProductCost(orderedItem);
     }
 
     public int getId() {

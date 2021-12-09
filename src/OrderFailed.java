@@ -11,8 +11,8 @@ public class OrderFailed implements ShipmentState
         System.out.println("Order details:");
         System.out.println("ID: " + context.getShipment().getId());
         System.out.println("Ordered item: " + context.getShipment().getOrderedItem());
-        System.out.println("Customer: " + context.getShipment().getCustomer());
-        // TODO System.out.println("Price: " + GetPrice );
+        System.out.println("Customer: " + context.getShipment().getCustomer().getName());
+        System.out.println("Price: " + context.getShipment().getItemCost() );
         context.setFinished(true);
     }
 }

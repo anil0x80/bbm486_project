@@ -30,20 +30,5 @@ public class DeliveryInProgress implements ShipmentState
         // bilgi printle
         // eger customer evinde ise [probability?], DeliverySuccessful
         // eger degilse -> DeliveryFailed
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
