@@ -41,6 +41,10 @@ public class Customer
                 +this.homeAddress.getNeighborhoodName()+" "+this.homeAddress.getStreetName()+" No:"+this.homeAddress.getHomeNumber().toString();
     }
 
+    public Location getLocation(){
+        return homeAddress;
+    }
+
     public void setHomeAddress(Location homeAddress) {
         this.homeAddress = homeAddress;
     }

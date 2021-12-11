@@ -1,6 +1,8 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.*;
+import java.util.ArrayList;
+
 import com.mysql.jdbc.Driver;
 
 public class Database
@@ -19,6 +21,45 @@ public class Database
 
         return databaseInstance;
     }
+
+    public ArrayList<Path> getPaths()
+    {
+        ArrayList<Path> result = new ArrayList<>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs=stmt.executeQuery("select * from path");
+            while(rs.next())
+            {
+                result.add(new Path(rs.getString(1), rs.getString(2)));
+            }
+            ArrayList<Path> ordered = new ArrayList<>();
+            Path path = result.stream().filter(p -> p.getFromCity().equals("Istanbul")).findFirst().get();
+            ordered.add(path);
+            String next_city = "";
+            while (true)
+            {
+                for (Path p2 : result)
+                {
+                    if (p2.getFromCity().equals(path.getToCity()))
+                    {
+                        path = p2;
+                        next_city = p2.getToCity();
+                        ordered.add(p2);
+                        break;
+                    }
+                }
+                if (next_city.equals("Ankara"))
+                    break;
+            }
+            return ordered;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+
+    }
+
 
     public Location getLocation(int locationId)
     {
