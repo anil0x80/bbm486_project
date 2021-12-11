@@ -20,6 +20,23 @@ public class Database
         return databaseInstance;
     }
 
+    public Location getLocation(int locationId)
+    {
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs=stmt.executeQuery("select * from location where id=" + locationId);
+            rs.next();
+
+            return new Location(rs.getString(2), rs.getString(3), rs.getString(4),
+                    rs.getString(5), rs.getInt(6));
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return null;
+    }
+
     public static void setCredentials(String ip, String username, String password)
     {
         databaseIp = ip;
@@ -45,7 +62,7 @@ public class Database
             ResultSet rs=stmt.executeQuery("select * from customer where id=" + customerId);
             rs.next();
             return new Customer(customerId, rs.getString(2),
-                    rs.getFloat(3), rs.getString(4));
+                    rs.getFloat(3),     getLocation(rs.getInt(4)));
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
