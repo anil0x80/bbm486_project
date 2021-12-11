@@ -3,9 +3,9 @@ public class Customer
     private int id;
     private String name;
     private float money;
-    private String homeAddress;
+    private Location homeAddress;
 
-    public Customer(int id, String name, float money, String homeAddress) {
+    public Customer(int id, String name, float money, Location homeAddress) {
         this.id = id;
         this.name = name;
         this.money = money;
@@ -37,10 +37,11 @@ public class Customer
     }
 
     public String getHomeAddress() {
-        return homeAddress;
+        return this.homeAddress.getCityName()+" "+this.homeAddress.getDistrictName()+" "
+                +this.homeAddress.getNeighborhoodName()+" "+this.homeAddress.getStreetName()+" No:"+this.homeAddress.getHomeNumber().toString();
     }
 
-    public void setHomeAddress(String homeAddress) {
+    public void setHomeAddress(Location homeAddress) {
         this.homeAddress = homeAddress;
     }
 }
