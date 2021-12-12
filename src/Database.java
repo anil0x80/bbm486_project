@@ -38,6 +38,7 @@ public class Database
             String next_city = "";
             while (true)
             {
+                boolean found = false;
                 for (Path p2 : result)
                 {
                     if (p2.getFromCity().equals(path.getToCity()))
@@ -45,10 +46,11 @@ public class Database
                         path = p2;
                         next_city = p2.getToCity();
                         ordered.add(p2);
+                        found = true;
                         break;
                     }
                 }
-                if (next_city.equals("Ankara"))
+                if (!found)
                     break;
             }
             return ordered;

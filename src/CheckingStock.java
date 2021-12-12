@@ -8,26 +8,22 @@ public class CheckingStock implements ShipmentState
     @Override
     public void processShipment(ShipmentContext context) {
         String orderedItem = context.getShipment().getOrderedItem();
+        int shipmentId = context.getShipment().getId();
 
-        System.out.println("Checking stock for the ordered item.");
-        System.out.println("Ordered item: " + orderedItem);
-
-
+        System.out.printf("Order#%s Checking stock!\n", shipmentId);
 
         if (Database.getInstance().isInStock(orderedItem))
         {
-            System.out.println("Item is in stock!");
+            System.out.printf("Order#%s Item %s is in stock!\n", shipmentId, orderedItem);
             boolean buyResult = Database.getInstance().buyProduct(context.getShipment().getCustomer(), orderedItem);
             assert(buyResult);
             context.setShipmentState(new Packaging());
         }
         else
         {
-            System.out.println("Order failed because item: " + orderedItem + " is not in stock!");
+            context.setFailReason("Item: " + orderedItem + " is not in stock!");
             context.setShipmentState(new OrderFailed());
         }
-
-
 
     }
 }

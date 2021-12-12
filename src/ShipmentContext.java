@@ -5,6 +5,15 @@ public class ShipmentContext
     private Shipment shipment;
     private ShipmentState shipmentState;
     private boolean isFinished = false;
+    private String failReason;
+
+    public String getFailReason() {
+        return failReason;
+    }
+
+    public void setFailReason(String failReason) {
+        this.failReason = failReason;
+    }
 
     public ShipmentContext(Shipment shipment) {
         this.shipment = shipment;

@@ -1,5 +1,4 @@
-public class OrderFailed implements ShipmentState
-{
+public class OrderFailed implements ShipmentState {
     @Override
     public String name() {
         return "OrderFailed";
@@ -7,12 +6,8 @@ public class OrderFailed implements ShipmentState
 
     @Override
     public void processShipment(ShipmentContext context) {
-        System.out.println("The order has been canceled.");
-        System.out.println("Order details:");
-        System.out.println("ID: " + context.getShipment().getId());
-        System.out.println("Ordered item: " + context.getShipment().getOrderedItem());
-        System.out.println("Customer: " + context.getShipment().getCustomer().getName());
-        System.out.println("Price: " + context.getShipment().getItemCost() );
+        System.out.printf("%sOrder#%s has failed! Reason: %s%s",ConsoleColors.ANSI_RED, context.getShipment().getId(),
+                context.getFailReason(), ConsoleColors.ANSI_RESET);
         context.setFinished(true);
     }
 }

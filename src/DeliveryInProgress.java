@@ -43,7 +43,7 @@ public class DeliveryInProgress implements ShipmentState
 
         double randomCustomerAtHomeChance = Math.random();
 
-        if(randomCustomerAtHomeChance > 0.2){
+        if(randomCustomerAtHomeChance > 0.8){
             context.setShipmentState(new DeliverySuccessful());
         }else{
             context.setShipmentState(new DeliveryFailed());

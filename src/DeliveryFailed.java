@@ -8,8 +8,9 @@ public class DeliveryFailed implements ShipmentState
 
     @Override
     public void processShipment(ShipmentContext context) {
-        System.out.printf("Order#%s for '%s' has status '%s because (%s)!'.\n", context.getShipment().getId(),
-                context.getShipment().getOrderedItem(), name(),DeliveryFailedNote
+        System.out.printf("%sOrder#%s for '%s' has status '%s because (%s)!'. %s\n",
+                ConsoleColors.ANSI_RED,context.getShipment().getId(),
+                context.getShipment().getOrderedItem(), name(),DeliveryFailedNote, ConsoleColors.ANSI_RESET
         );
         context.setFinished(true);
     }
